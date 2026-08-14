@@ -37,6 +37,25 @@
 - “把这些笔记整理成简洁的 1:1 update。”
 - “这段周报太像流水账了，帮我突出 impact。”
 
+也可以点名汇报对象，让重点随角色变化：
+
+> 把这份 update 改成写给 CPO 看的版本。
+
+## 选择汇报对象
+
+Boss View 内置 6 种决策视角。选择角色会改变信息优先级、可能的追问、风险表达和 Ask，但绝不会改变底层事实。
+
+| 汇报对象 | 优先关注 |
+| --- | --- |
+| **CEO** | 战略、增长、资源配置、机会成本 |
+| **CPO** | 用户价值、产品判断、学习速度、采用率 |
+| **CTO** | 技术风险、依赖、可靠性、可扩展性 |
+| **VP Design** | 用户洞察、体验质量、设计判断、跨团队推进 |
+| **VP Product** | 产品方向、优先级、路线图影响、市场信号 |
+| **Direct Manager** | 执行进度、交付风险、个人 ownership、所需支持 |
+
+如果用户未指定对象，也无法从上下文可靠判断，则默认使用 **Direct Manager**，并在可复制正文之外说明这一假设。不会把 6 个角色混成一份面面俱到、没有重点的通用汇报。
+
 ## 你会得到什么
 
 每次汇报都会围绕同一条 Executive Narrative 组织：
@@ -114,9 +133,11 @@ VS Code 用户可以把整个文件夹放入自己的 prompts / skills 目录，
 
 ```text
 boss-view/
-├── SKILL.md       # 工作流、输出格式、规则与示例
-├── README.md      # English documentation
-└── README.zh.md   # 中文文档
+├── SKILL.md                         # 工作流与输出规则
+├── references/
+│   └── executive-lenses.md          # 6 种汇报对象决策视角
+├── README.md                        # English documentation
+└── README.zh.md                     # 中文文档
 ```
 
 ## 什么样的输入最有帮助
@@ -134,6 +155,7 @@ boss-view/
 ## 相关链接
 
 - [SKILL.md](./SKILL.md) — 完整工作流与输出规则
+- [Executive audience lenses](./references/executive-lenses.md) — 各角色的信息优先级、追问与 Ask
 - [yanliudesign on GitHub](https://github.com/yanliudesign) — 更多 Agent Skills 与设计工具
 
 Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) · [LinkedIn](https://www.linkedin.com/in/yanliudesign/) · [X](https://x.com/yanliudreamer) · [Xiaohongshu](https://www.xiaohongshu.com/notification)

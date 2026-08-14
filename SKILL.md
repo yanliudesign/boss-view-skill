@@ -34,6 +34,21 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 
 **如果某些信息没有提供，不要编造数据或事实**，在对应位置标注缺失即可。
 
+### Step 1.5：选择汇报对象
+
+在重构内容前，读取 [references/executive-lenses.md](references/executive-lenses.md)，选择一个主要 Audience Lens：
+
+- **CEO**：战略、增长、资源配置
+- **CPO**：用户价值、产品判断、学习速度
+- **CTO**：技术风险、依赖、可扩展性
+- **VP Design**：用户洞察、质量、跨团队推进
+- **VP Product**：产品方向、优先级、路线图影响
+- **Direct Manager**：执行进度、风险、个人 ownership
+
+用户明确指定对象时必须使用对应 Lens。未指定且无法可靠推断时，默认使用 **Direct Manager**，并在 Copy-ready Version 之外标注：`Audience lens: Direct Manager (default)`。
+
+不要混合全部角色。一个汇报只能有一个主要受众；角色 Lens 只改变信息优先级、风险、追问和 Ask，不得改变或补造事实。
+
 ### Step 2：站在老板视角重新思考
 
 **不要按照用户原本的叙述顺序输出。** 优先回答老板最关心的几个问题：
@@ -46,6 +61,14 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 6. What do you need from me?（你需要我做什么）
 
 把"我做了很多事情"转换成"我创造了什么价值"。
+
+完成通用重构后，再按照已选 Audience Lens 做一次取舍：
+
+1. 把该角色最关心的证据、结果或风险前置。
+2. 删除该角色不需要的执行细节，但保留会改变决策、成本、时间或风险的细节。
+3. Manager Questions 必须优先使用该角色的典型追问。
+4. Ask 必须落在该角色有权做出的决策或提供的支持上。
+5. 角色所需证据缺失时，只标注待补充，不得推断为已发生。
 
 **正反例对比：**
 

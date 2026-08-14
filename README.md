@@ -37,6 +37,25 @@ You can also trigger it naturally:
 - "Turn these notes into a concise 1:1 update."
 - "把这些零散记录整理成给老板看的周报。"
 
+Name the audience to change what gets emphasized:
+
+> Rewrite this update for the CPO.
+
+## Choose the audience
+
+Boss View supports six decision lenses. The selected lens changes priority, likely follow-up questions, risk framing, and the ask — never the underlying facts.
+
+| Audience | What the update prioritizes |
+| --- | --- |
+| **CEO** | Strategy, growth, resource allocation, opportunity cost |
+| **CPO** | User value, product judgment, learning velocity, adoption |
+| **CTO** | Technical risk, dependencies, reliability, scalability |
+| **VP Design** | User insight, experience quality, design rationale, cross-functional progress |
+| **VP Product** | Product direction, prioritization, roadmap impact, market signal |
+| **Direct Manager** | Execution progress, delivery risk, ownership, support needed |
+
+If the audience is not specified and cannot be inferred reliably, Boss View defaults to **Direct Manager** and states the assumption outside the copy-ready update. It never blends all six lenses into one generic report.
+
 ## What you get
 
 Every update is organized around a consistent executive narrative:
@@ -114,9 +133,11 @@ For VS Code, place the folder in your prompts/skills location and invoke it from
 
 ```text
 boss-view/
-├── SKILL.md       # Workflow, output contract, guardrails, and example
-├── README.md      # English documentation
-└── README.zh.md   # 中文文档
+├── SKILL.md                         # Workflow and output contract
+├── references/
+│   └── executive-lenses.md          # Six audience decision lenses
+├── README.md                        # English documentation
+└── README.zh.md                     # 中文文档
 ```
 
 ## Good inputs
@@ -134,6 +155,7 @@ Missing information is marked for follow-up, never filled with invented facts.
 ## Related links
 
 - [SKILL.md](./SKILL.md) — the complete workflow and output rules
+- [Executive audience lenses](./references/executive-lenses.md) — priorities, questions, and asks by role
 - [yanliudesign on GitHub](https://github.com/yanliudesign) — more agent skills and design tools
 
 Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) · [LinkedIn](https://www.linkedin.com/in/yanliudesign/) · [X](https://x.com/yanliudreamer) · [Xiaohongshu](https://www.xiaohongshu.com/notification)
