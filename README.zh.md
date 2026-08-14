@@ -11,7 +11,7 @@
 [![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-Skill-8957e5?style=flat-square&labelColor=1a1a1a&logo=githubcopilot&logoColor=white)](https://github.com/features/copilot)
 [![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)]()
 
-这是一个用于周报、工作汇报、Manager Sync、1:1 和项目进展同步的 Agent Skill。你只需要丢进一段顺序混乱、甚至不完整的工作记录，它会从老板 / Manager / Executive 的视角重新组织信息，优先回答：发生了什么、为什么重要、产生了什么影响、有哪些风险、下一步做什么，以及需要老板提供什么支持。
+这是一个用于周报、工作汇报、Manager Sync、1:1 和项目进展同步的 Agent Skill。你只需要丢进一段顺序混乱、甚至不完整的工作记录，它会从老板 / Manager / Executive 的视角重新组织信息，并自动生成一份可导出 PDF / Markdown 的单文件 HTML 报告。
 
 它不会把“忙”包装成“有价值”，也不会编造缺失的数据。没有证据的地方，会明确标注需要补充。
 
@@ -68,6 +68,8 @@ Boss View 内置 6 种决策视角。选择角色会改变信息优先级、可�
 6. **Ask** — 明确需要老板决策、给资源、协调团队、提供方向或解除阻塞
 7. **Manager Questions** — 预测 3–5 个老板最可能追问的问题，并提供回答建议
 8. **Copy-ready Version** — 可直接贴进 Slack、Email、Notion、周会或 1:1 的最终版本
+
+同一份内容还会使用 Offer Toolkit 的视觉系统组装成正式 HTML 报告：cream paper、强层级、决策前置摘要、打印友好的卡片、双语内容和固定导出工具栏。
 
 没有有效信息的部分可以省略。如果没有明确 Ask，会写 **No immediate action needed.**，不会为了格式完整而虚构需求。
 
@@ -134,8 +136,11 @@ VS Code 用户可以把整个文件夹放入自己的 prompts / skills 目录，
 ```text
 boss-view/
 ├── SKILL.md                         # 工作流与输出规则
+├── examples/
+│   └── executive-update-template.html # 单文件 HTML 报告模板
 ├── references/
-│   └── executive-lenses.md          # 6 种汇报对象决策视角
+│   ├── executive-lenses.md          # 6 种汇报对象决策视角
+│   └── executive-report-spec.md     # HTML 生成与校验规则
 ├── README.md                        # English documentation
 └── README.zh.md                     # 中文文档
 ```
@@ -156,6 +161,7 @@ boss-view/
 
 - [SKILL.md](./SKILL.md) — 完整工作流与输出规则
 - [Executive audience lenses](./references/executive-lenses.md) — 各角色的信息优先级、追问与 Ask
+- [Executive report template](./examples/executive-update-template.html) — 单文件 HTML 报告骨架
 - [yanliudesign on GitHub](https://github.com/yanliudesign) — 更多 Agent Skills 与设计工具
 
 Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) · [LinkedIn](https://www.linkedin.com/in/yanliudesign/) · [X](https://x.com/yanliudreamer) · [Xiaohongshu](https://www.xiaohongshu.com/notification)

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive Update · {{PROJECT_OR_TEAM}} · {{REPORTING_PERIOD}}</title>
+<!--
+  Boss View · Executive Update Report Template
+  Replace every double-braced placeholder. Repeated content placeholders expect valid HTML.
+  Keep the single-file structure, bilingual spans, print rules, export tools, and footer.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --ink-2: #252522;
+    --paper: #fafaf7;
+    --paper-2: #f3f3ee;
+    --paper-3: #e9e9e2;
+    --muted: #6b6b66;
+    --line: #d9d9d2;
+    --line-soft: #e8e8e1;
+    --go: #158a4d;
+    --go-soft: #dff3e6;
+    --warn: #d97706;
+    --warn-soft: #fff3d8;
+    --stop: #c2410c;
+    --stop-soft: #fde5da;
+    --info: #2563eb;
+    --accent: #facc15;
+    --serif: "Times New Roman", "Noto Serif SC", "Songti SC", Georgia, serif;
+    --display: "SF Pro Display", -apple-system, "Helvetica Neue", "Noto Sans SC", "PingFang SC", sans-serif;
+    --body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Noto Sans SC", "PingFang SC", sans-serif;
+    --mono: "SF Mono", "JetBrains Mono", Menlo, "Noto Sans SC", monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); }
+  body { font-family: var(--body); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration-color: var(--muted); text-underline-offset: 3px; }
+  .page { width: min(960px, 100%); margin: 0 auto; padding: 44px 56px 88px; }
+
+  .report-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 7px 14px; background: var(--accent); border: 2px solid var(--ink); border-radius: 5px; box-shadow: 3px 3px 0 var(--ink); font-size: 14px; font-weight: 800; }
+  .meta-line { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 14px; color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .meta-line .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--ink); }
+  h1 { max-width: 850px; margin: 0; font-family: var(--display); font-size: clamp(42px, 6vw, 64px); line-height: 1.04; letter-spacing: -0.025em; font-weight: 900; }
+  .subtitle { max-width: 790px; margin: 14px 0 0; color: var(--muted); font-size: 17px; line-height: 1.55; }
+  .header-rule { height: 2px; margin: 26px 0 0; background: var(--ink); }
+
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .fact { min-width: 0; padding: 0 16px; border-left: 1px solid var(--line); }
+  .fact:first-child { padding-left: 0; border-left: 0; }
+  .fact .label { margin-bottom: 4px; color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .fact .value { font-size: 13px; font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
+
+  .toc { display: grid; grid-template-columns: 90px 1fr; gap: 20px; margin: 26px 0 30px; padding: 18px 20px; background: var(--paper-2); border: 1px solid var(--line); border-radius: 5px; }
+  .toc .kicker { color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .toc ol { columns: 2; column-gap: 32px; margin: 0; padding: 0; list-style: none; font-size: 13px; }
+  .toc li { padding: 2px 0; break-inside: avoid; }
+  .toc a { text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .assumptions { margin-bottom: 34px; padding: 15px 18px; background: var(--warn-soft); border-left: 4px solid var(--accent); color: #493b16; font-size: 13px; }
+  .assumptions strong { color: var(--ink); }
+  .assumptions ul { margin: 8px 0 0; padding-left: 20px; }
+
+  .verdict { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; margin-bottom: 22px; padding: 34px 38px; background: var(--ink); color: var(--paper); border-radius: 6px; }
+  .verdict .kicker { margin-bottom: 8px; color: #9b9b95; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .verdict h2 { margin: 0 0 10px; font-size: 30px; line-height: 1.18; }
+  .verdict p { max-width: 650px; margin: 0; color: #cecec8; font-size: 14px; }
+  .verdict .signal { min-width: 108px; text-align: right; }
+  .verdict .signal strong { display: block; color: var(--accent); font-family: var(--display); font-size: 38px; line-height: 1; }
+  .verdict .signal span { color: #999; font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .three-things { margin-bottom: 48px; padding: 22px 26px; background: white; border: 1px solid var(--ink); border-radius: 6px; }
+  .three-things .kicker { margin-bottom: 8px; color: var(--muted); font-family: var(--serif); font-size: 13px; font-style: italic; }
+  .three-things ol { margin: 0; padding-left: 24px; }
+  .three-things li { padding: 8px 0 8px 7px; border-bottom: 1px dashed var(--line); }
+  .three-things li:last-child { border-bottom: 0; }
+
+  section { margin-bottom: 58px; scroll-margin-top: 20px; }
+  .section-head { display: flex; gap: 16px; align-items: baseline; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--ink); }
+  .section-head .num { min-width: 30px; color: var(--muted); font-family: var(--serif); font-size: 17px; font-style: italic; }
+  .section-head h2 { flex: 1; margin: 0; font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; }
+  .section-head .pill { padding: 3px 9px; background: var(--paper-2); border-radius: 999px; color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .section-intro { max-width: 760px; margin: -4px 0 20px; color: var(--muted); font-size: 13px; }
+
+  .lens-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .lens-card { padding: 20px 22px; background: white; border: 1px solid var(--line); border-radius: 6px; }
+  .lens-card h3 { margin: 0 0 8px; font-size: 15px; }
+  .lens-card p, .lens-card ul { margin-top: 0; font-size: 13px; }
+  .lens-card ul { margin-bottom: 0; padding-left: 19px; }
+
+  .wins { display: grid; gap: 12px; counter-reset: wins; }
+  .win { display: grid; grid-template-columns: 38px 1fr; gap: 14px; padding: 16px 18px; background: var(--paper-2); border-left: 3px solid var(--go); }
+  .win::before { counter-increment: wins; content: counter(wins); color: var(--muted); font-family: var(--display); font-size: 24px; font-weight: 900; }
+  .win h3 { margin: 0 0 4px; font-size: 15px; }
+  .win p { margin: 0; color: var(--ink-2); font-size: 13px; }
+
+  .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .impact-card { min-height: 150px; padding: 18px 20px; background: white; border: 1px solid var(--line); border-radius: 6px; }
+  .impact-card .label { color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .impact-card .value { margin: 9px 0 8px; font-family: var(--display); font-size: 30px; font-weight: 900; line-height: 1.05; }
+  .impact-card p { margin: 0; color: var(--ink-2); font-size: 12px; }
+  .impact-card.to-quantify { background: var(--paper-2); border-style: dashed; }
+
+  .risk-list { display: grid; gap: 12px; }
+  .risk { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 15px 18px; background: white; border: 1px solid var(--line); border-left: 3px solid var(--warn); }
+  .risk.blocker { border-left-color: var(--stop); }
+  .risk.dependency { border-left-color: var(--info); }
+  .risk .type { color: var(--warn); font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .risk.blocker .type { color: var(--stop); }
+  .risk.dependency .type { color: var(--info); }
+  .risk p { margin: 0; font-size: 13px; }
+
+  .steps { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .step { display: grid; grid-template-columns: 44px 1fr 150px; gap: 16px; padding: 16px 18px; background: white; border-top: 1px solid var(--line-soft); }
+  .step:first-child { border-top: 0; }
+  .step .index { color: var(--muted); font-family: var(--display); font-size: 22px; font-weight: 900; }
+  .step h3 { margin: 0 0 4px; font-size: 14px; }
+  .step p { margin: 0; color: var(--muted); font-size: 12px; }
+  .step .owner { text-align: right; font-family: var(--mono); font-size: 10px; line-height: 1.5; }
+
+  .ask { padding: 28px 30px; background: var(--accent); border: 2px solid var(--ink); border-radius: 6px; box-shadow: 5px 5px 0 var(--ink); }
+  .ask .kicker { margin-bottom: 8px; font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .ask h3 { margin: 0 0 8px; font-size: 23px; line-height: 1.25; }
+  .ask p { margin: 0; font-size: 13px; }
+
+  .questions { display: grid; gap: 12px; }
+  details.question { background: white; border: 1px solid var(--line); border-left: 3px solid var(--ink); border-radius: 0 5px 5px 0; }
+  details.question summary { padding: 15px 18px; cursor: pointer; font-size: 14px; font-weight: 700; }
+  details.question .answer { padding: 0 18px 16px; color: var(--ink-2); font-size: 13px; }
+
+  .copy-ready { padding: 22px 24px; background: var(--paper-2); border: 1px dashed var(--ink); border-radius: 5px; }
+  .copy-ready pre { margin: 0; white-space: pre-wrap; font: 13px/1.7 var(--body); }
+
+  footer { margin-top: 68px; }
+  .brand-block { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; padding: 42px 0 28px; border-top: 1px solid var(--line); }
+  .brand-mark { margin: 0; font-family: var(--display); font-size: clamp(58px, 10vw, 96px); line-height: 0.92; letter-spacing: -0.045em; font-weight: 900; }
+  .brand-mark .dot-yellow { color: var(--accent); -webkit-text-stroke: 1px var(--ink); }
+  .brand-sub { margin-top: 10px; color: var(--muted); font-family: var(--serif); font-size: 15px; font-style: italic; }
+  .brand-sub strong { color: var(--ink); font-family: var(--display); font-style: normal; }
+  .socials { display: flex; gap: 10px; }
+  .socials a { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; background: var(--paper); border: 1.5px solid var(--ink); border-radius: 50%; color: var(--ink); text-decoration: none; }
+  .socials a:hover { background: var(--ink); color: var(--paper); }
+  .socials svg { width: 19px; height: 19px; }
+  .socials .xhs { background: #ff2442; border-color: #ff2442; border-radius: 10px; color: white; font-size: 10px; font-weight: 900; }
+  .foot-meta { padding-top: 14px; color: var(--muted); font-size: 10px; line-height: 1.7; }
+
+  .report-tools { position: fixed; right: 22px; bottom: 22px; z-index: 20; display: flex; gap: 5px; align-items: center; padding: 7px; background: var(--ink-2); border-radius: 999px; box-shadow: 0 8px 26px rgba(0,0,0,.25); }
+  .report-tools button { min-height: 38px; padding: 0 14px; background: transparent; border: 0; border-radius: 999px; color: #ddd; cursor: pointer; font: 700 12px var(--body); }
+  .report-tools button:hover { color: white; }
+  .report-tools .export { background: var(--accent); color: var(--ink); border: 1px solid var(--ink); }
+  .report-tools .export:hover { color: var(--ink); background: #fde047; }
+  html[lang="en"] [data-lang="zh"] { display: none !important; }
+  html[lang="zh"] [data-lang="en"] { display: none !important; }
+
+  @media print {
+    @page { margin: 14mm; }
+    body { background: white; }
+    .page { width: auto; padding: 0; }
+    .report-tools { display: none !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .report-badge, .facts, .toc, .assumptions, .verdict, .three-things li, .lens-card,
+    .win, .impact-card, .risk, .step, .ask, .question, .copy-ready, .brand-block {
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    h1, h2, h3, .section-head { break-after: avoid; page-break-after: avoid; }
+    section { margin-bottom: 24px; }
+  }
+  @media (max-width: 720px) {
+    .report-tools { position: static; width: max-content; max-width: calc(100% - 40px); margin: 20px auto 0; }
+    .report-tools button { min-height: 44px; padding: 0 12px; }
+    .page { padding: 28px 20px 72px; }
+    .facts, .lens-grid, .impact-grid { grid-template-columns: 1fr; }
+    .fact { padding: 12px 0; border-left: 0; border-top: 1px solid var(--line); }
+    .fact:first-child { border-top: 0; }
+    .toc { grid-template-columns: 1fr; }
+    .toc ol { columns: 1; }
+    .verdict { grid-template-columns: 1fr; padding: 28px 24px; }
+    .verdict .signal { text-align: left; }
+    .risk, .step { grid-template-columns: 1fr; }
+    .step .owner { text-align: left; }
+    .brand-block { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="report-tools" role="toolbar" aria-label="Report tools">
+  <button type="button" onclick="toggleLang()" aria-label="Switch language">EN / 中文</button>
+  <button type="button" onclick="exportMarkdown()">↓ MD</button>
+  <button type="button" class="export" onclick="window.print()">↓ PDF</button>
+</div>
+
+<main class="page">
+  <header>
+    <div class="report-badge">💼 Executive Update</div>
+    <div class="meta-line">
+      <span>Boss View</span><span class="dot"></span>
+      <span>{{AUDIENCE_LENS}}</span><span class="dot"></span>
+      <span>{{DATE_YYYY_MM_DD}}</span>
+    </div>
+    <h1>{{PROJECT_OR_TEAM}}<br>{{REPORTING_PERIOD}}</h1>
+    <p class="subtitle">{{ONE_LINE_CONTEXT}}</p>
+    <div class="header-rule"></div>
+  </header>
+
+  <div class="facts">
+    <div class="fact"><div class="label"><span data-lang="en">Audience</span><span data-lang="zh">汇报对象</span></div><div class="value">{{AUDIENCE_LENS}}</div></div>
+    <div class="fact"><div class="label"><span data-lang="en">Owner</span><span data-lang="zh">负责人</span></div><div class="value">{{OWNER}}</div></div>
+    <div class="fact"><div class="label"><span data-lang="en">Status</span><span data-lang="zh">状态</span></div><div class="value">{{STATUS}}</div></div>
+    <div class="fact"><div class="label"><span data-lang="en">Decision needed by</span><span data-lang="zh">决策截止</span></div><div class="value">{{DECISION_DEADLINE}}</div></div>
+  </div>
+
+  <nav class="toc" aria-label="Table of contents">
+    <div class="kicker">Inside</div>
+    <ol>
+      <li><a href="#lens">0 · Audience Lens</a></li>
+      <li><a href="#summary">1 · Executive Summary</a></li>
+      <li><a href="#wins">2 · Key Wins</a></li>
+      <li><a href="#impact">3 · Business Impact</a></li>
+      <li><a href="#risks">4 · Challenges / Risks</a></li>
+      <li><a href="#next">5 · Next Steps</a></li>
+      <li><a href="#ask">6 · Ask</a></li>
+      <li><a href="#questions">7 · Manager Questions</a></li>
+      <li><a href="#copy">8 · Copy-ready Version</a></li>
+    </ol>
+  </nav>
+
+  <aside class="assumptions">
+    <strong><span data-lang="en">⚠ Assumptions — correct any item and regenerate.</span><span data-lang="zh">⚠ 假设说明：任一不对，请纠正后重新生成。</span></strong>
+    <ul>{{ASSUMPTIONS_HTML}}</ul>
+  </aside>
+
+  <section id="summary">
+    <div class="verdict">
+      <div>
+        <div class="kicker">Executive Summary</div>
+        <h2>{{SUMMARY_HEADLINE}}</h2>
+        <p>{{EXECUTIVE_SUMMARY}}</p>
+      </div>
+      <div class="signal"><strong>{{STATUS_SIGNAL}}</strong><span>{{STATUS_LABEL}}</span></div>
+    </div>
+    <div class="three-things">
+      <div class="kicker">If you only read three things</div>
+      <ol>{{THREE_THINGS_HTML}}</ol>
+    </div>
+  </section>
+
+  <section id="lens">
+    <div class="section-head"><span class="num">00</span><h2>Audience Lens · {{AUDIENCE_LENS}}</h2><span class="pill">Decision filter</span></div>
+    <p class="section-intro"><span data-lang="en">The lens changes emphasis, questions, and the ask — never the facts.</span><span data-lang="zh">角色视角只改变重点、追问和 Ask，绝不改变事实。</span></p>
+    <div class="lens-grid">
+      <div class="lens-card"><h3><span data-lang="en">What this audience cares about</span><span data-lang="zh">这个角色最关心什么</span></h3><ul>{{AUDIENCE_PRIORITIES_HTML}}</ul></div>
+      <div class="lens-card"><h3><span data-lang="en">What was deprioritized</span><span data-lang="zh">哪些细节被降级</span></h3><p>{{DEPRIORITIZED_DETAIL}}</p></div>
+    </div>
+  </section>
+
+  <section id="wins">
+    <div class="section-head"><span class="num">02</span><h2>Key Wins</h2><span class="pill">Action → Result → Impact</span></div>
+    <div class="wins">{{KEY_WINS_HTML}}</div>
+  </section>
+
+  <section id="impact">
+    <div class="section-head"><span class="num">03</span><h2>Business Impact</h2><span class="pill">So what?</span></div>
+    <div class="impact-grid">{{IMPACT_CARDS_HTML}}</div>
+  </section>
+
+  <section id="risks">
+    <div class="section-head"><span class="num">04</span><h2>Challenges / Risks</h2><span class="pill">Signal only</span></div>
+    <div class="risk-list">{{RISKS_HTML}}</div>
+  </section>
+
+  <section id="next">
+    <div class="section-head"><span class="num">05</span><h2>Next Steps</h2><span class="pill">Action · Owner · Timeline</span></div>
+    <div class="steps">{{NEXT_STEPS_HTML}}</div>
+  </section>
+
+  <section id="ask">
+    <div class="section-head"><span class="num">06</span><h2>Ask</h2><span class="pill">Decision / Support</span></div>
+    <div class="ask"><div class="kicker">{{ASK_TYPE}}</div><h3>{{ASK_HEADLINE}}</h3><p>{{ASK_DETAIL}}</p></div>
+  </section>
+
+  <section id="questions">
+    <div class="section-head"><span class="num">07</span><h2>Manager Questions</h2><span class="pill">Prepare before the room</span></div>
+    <div class="questions">{{MANAGER_QUESTIONS_HTML}}</div>
+  </section>
+
+  <section id="copy">
+    <div class="section-head"><span class="num">08</span><h2>Copy-ready Version</h2><span class="pill">Slack · Email · Notion · 1:1</span></div>
+    <div class="copy-ready"><pre>{{COPY_READY_TEXT}}</pre></div>
+  </section>
+
+  <footer>
+    <div class="brand-block">
+      <div>
+        <h2 class="brand-mark">BOSS VIEW<span class="dot-yellow">.</span></h2>
+        <div class="brand-sub">Created by <strong>Dreameryanyan</strong> · Executive Update Generator</div>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/yanliudesign/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://x.com/yanliudreamer" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a class="xhs" href="https://www.xiaohongshu.com/user/profile/5b2afdf311be104ac3c22931" target="_blank" rel="noopener" aria-label="Xiaohongshu">小红书</a>
+      </div>
+    </div>
+    <div class="foot-meta">Generated {{DATE_YYYY_MM_DD}} · {{PROJECT_OR_TEAM}} · Audience: {{AUDIENCE_LENS}} · Source: user-provided work notes.<br><strong>No fabricated facts.</strong> Missing evidence is marked for follow-up, not filled by inference.</div>
+  </footer>
+</main>
+
+<script>
+  function toggleLang() {
+    document.documentElement.lang = document.documentElement.lang === 'zh' ? 'en' : 'zh';
+  }
+  function exportMarkdown() {
+    const clone = document.querySelector('.page').cloneNode(true);
+    clone.querySelectorAll('nav, footer, script').forEach((node) => node.remove());
+    const text = clone.innerText.replace(/\n{3,}/g, '\n\n').trim();
+    const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'executive-update-{{FILE_SLUG}}.md';
+    link.click();
+    URL.revokeObjectURL(link.href);
+  }
+</script>
+</body>
+</html>

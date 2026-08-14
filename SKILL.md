@@ -1,6 +1,6 @@
 ---
 name: "老板视角汇报-1f5a4daa"
-description: 站在老板/Manager/Executive 视角，将用户零散的工作记录重新组织成结构化、突出业务价值的 Executive Update 汇报。适用于写周报、工作汇报、Manager Sync、1:1 前的准备。触发词：周报、工作汇报、给老板的update、weekly update、manager sync、汇报润色、工作汇报怎么写。核心方法：提取信息→老板视角重构→生成 Executive Summary/Key Wins/Business Impact/Challenges/Next Steps/Ask→预测老板提问→输出可直接复制的汇报版本。硬约束：绝不编造数据与结果，从"活动"转向"结果"，输入过短时先出初版再追问。
+description: 站在老板/Manager/Executive 视角，将用户零散的工作记录重构成突出业务价值的 Executive Update，并默认生成可分享、可导出 PDF/Markdown 的单文件 HTML 报告。适用于周报、工作汇报、Manager Sync、1:1。支持 CEO/CPO/CTO/VP Design/VP Product/Direct Manager 六种受众视角。硬约束：绝不编造数据与结果，从"活动"转向"结果"，输入过短时先出初版再追问。
 ---
 
 # 老板视角汇报（Executive Update Generator）
@@ -150,6 +150,18 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 - 不要过度包装
 - 不要使用空泛的 corporate jargon
 
+### Step 6：生成 HTML 报告并自动打开
+
+默认读取 [references/executive-report-spec.md](references/executive-report-spec.md)，使用 [examples/executive-update-template.html](examples/executive-update-template.html) 生成单文件 HTML 报告。
+
+1. 按报告规格填满模板；所有用户可见的动态文案提供 EN / 中文双语版本。
+2. 保存到 `~/Desktop/Claude skills/executive-update-<project-or-team>-<YYYYMMDD>.html`；项目未知时使用 `general`。
+3. 写完后执行规格中的五项自检。任何 `{{PLACEHOLDER}}` 残留都必须修复。
+4. 自动打开报告：macOS 使用 `open`，Linux 使用 `xdg-open`，Windows 使用 `start`。
+5. 在对话中同时保留 Copy-ready Version，并告诉用户报告路径及内置的 PDF / Markdown 导出按钮。
+
+只有用户明确要求“只给我一段 Slack / Email / Notion 文案”或 `text only` 时，才跳过 HTML。输入过短也要先生成带缺失标记的初版报告，不要因为信息不完整而拒绝。
+
 ## 特别规则
 
 ### 1. 不编造
@@ -188,6 +200,8 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 6. **Ask**
 7. **Manager Questions**（预测问题 + 回答建议）
 8. **Copy-ready Version**（可直接复制的最终版本，用代码块包裹方便复制）
+
+完成以上文本后，默认再生成并打开 **Executive Update HTML Report**。报告不是第 9 个文本章节，而是承载以上内容的正式交付物。
 
 若用户输入过短，在第 8 部分之后追加最多 3 个补充问题。
 

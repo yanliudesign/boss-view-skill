@@ -11,7 +11,7 @@ Turn messy work notes into an executive-ready update that makes progress, impact
 [![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-Skill-8957e5?style=flat-square&labelColor=1a1a1a&logo=githubcopilot&logoColor=white)](https://github.com/features/copilot)
 [![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)]()
 
-An agent skill for weekly updates, manager syncs, 1:1s, and project reporting. Drop in rough notes in any order. Boss View reorganizes them around what leaders actually need to know: what happened, why it matters, what changed, what is at risk, what happens next, and where you need help.
+An agent skill for weekly updates, manager syncs, 1:1s, and project reporting. Drop in rough notes in any order. Boss View reorganizes them around what leaders actually need to know, then generates a polished, single-file HTML report with built-in PDF and Markdown export.
 
 It does not inflate activity into impact or invent missing metrics. When evidence is missing, it says so.
 
@@ -68,6 +68,8 @@ Every update is organized around a consistent executive narrative:
 6. **Ask** — the decision, resource, alignment, or unblock needed from leadership
 7. **Manager Questions** — likely follow-up questions with answer guidance
 8. **Copy-ready Version** — a concise final update for Slack, email, Notion, a weekly review, or a 1:1
+
+The same content is assembled into an editorial HTML report using the Offer Toolkit visual system: cream paper, strong hierarchy, decision-first summary, print-safe cards, bilingual content, and a fixed export toolbar.
 
 Sections without useful information can be omitted. If there is no ask, the skill says **No immediate action needed.**
 
@@ -134,8 +136,11 @@ For VS Code, place the folder in your prompts/skills location and invoke it from
 ```text
 boss-view/
 ├── SKILL.md                         # Workflow and output contract
+├── examples/
+│   └── executive-update-template.html # Single-file report template
 ├── references/
-│   └── executive-lenses.md          # Six audience decision lenses
+│   ├── executive-lenses.md          # Six audience decision lenses
+│   └── executive-report-spec.md     # HTML generation and validation rules
 ├── README.md                        # English documentation
 └── README.zh.md                     # 中文文档
 ```
@@ -156,6 +161,7 @@ Missing information is marked for follow-up, never filled with invented facts.
 
 - [SKILL.md](./SKILL.md) — the complete workflow and output rules
 - [Executive audience lenses](./references/executive-lenses.md) — priorities, questions, and asks by role
+- [Executive report template](./examples/executive-update-template.html) — the self-contained HTML shell
 - [yanliudesign on GitHub](https://github.com/yanliudesign) — more agent skills and design tools
 
 Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) · [LinkedIn](https://www.linkedin.com/in/yanliudesign/) · [X](https://x.com/yanliudreamer) · [Xiaohongshu](https://www.xiaohongshu.com/notification)
