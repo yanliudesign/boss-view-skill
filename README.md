@@ -79,6 +79,17 @@ Every update is organized around a consistent executive narrative:
 
 The same content is assembled into an editorial HTML report using the Offer Toolkit visual system: cream paper, strong hierarchy, decision-first summary, print-safe cards, bilingual content, and a fixed export toolbar. All eight sections always appear. Unsupported sections show an explicit `Evidence gap` or `Impact to quantify`; they are never omitted or padded with invented content. If there is no ask, the skill says **No immediate action needed.**
 
+## Report example
+
+<p align="center">
+	<img src="./examples/en/Screenshot%202026-08-19%20at%2011.48.38%E2%80%AFPM.png" alt="English Executive Report cover and executive summary" width="100%">
+	<img src="./examples/en/Screenshot%202026-08-19%20at%2011.48.44%E2%80%AFPM.png" alt="English Executive Report key wins and business impact" width="100%">
+	<img src="./examples/en/Screenshot%202026-08-19%20at%2011.48.52%E2%80%AFPM.png" alt="English Executive Report challenges and risks" width="100%">
+	<img src="./examples/en/Screenshot%202026-08-19%20at%2011.49.01%E2%80%AFPM.png" alt="English Executive Report next steps and ask" width="100%">
+	<img src="./examples/en/Screenshot%202026-08-19%20at%2011.49.07%E2%80%AFPM.png" alt="English Executive Report manager questions" width="100%">
+	<img src="./examples/en/Screenshot%202026-08-20%20at%2012.13.03%E2%80%AFAM.png" alt="English Executive Report copy-ready version and export controls" width="100%">
+</p>
+
 ## How it works
 
 ```text

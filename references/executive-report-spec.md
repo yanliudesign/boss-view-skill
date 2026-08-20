@@ -1,6 +1,8 @@
-# Executive Update HTML Report Specification
+# Executive Report HTML Specification
 
 Boss View's default deliverable is a shareable, single-file HTML report built from [../examples/executive-update-template.html](../examples/executive-update-template.html). The visual system intentionally matches Offer Toolkit: cream paper, editorial typography, strong hierarchy, yellow emphasis, print-safe atomic cards, and a fixed export toolbar.
+
+The HTML artifact identity is always **Executive Report** in the browser title, header badge, and footer. Keep **Executive Summary** as the first content section; do not use **Executive Update** as the report's visible theme label.
 
 The toolbar must provide language switching, Markdown download, and PDF export through the browser print dialog.
 
@@ -46,6 +48,19 @@ If the project or team is unknown, use `general`. Create the directory if it doe
 - Never infer metrics, owner, timeline, status, deadline, results, or business impact. Use `[需要补充]` / `[To confirm]`.
 - Do not create a numeric score when the input does not define a scoring system. `STATUS_SIGNAL` must be a factual word such as `ON TRACK`, `AT RISK`, `BLOCKED`, or `UPDATE`; otherwise use `UPDATE`.
 - The selected audience lens changes emphasis and questions, never facts.
+
+## Decision-useful detail floor
+
+Keep the report concise, but do not reduce sections to labels plus one generic sentence. Every section must help the audience make a judgment or identify the exact evidence still needed:
+
+- Executive Summary distinguishes confirmed progress, confirmed impact, and the next decision or milestone. Do not imply final alignment when only a discussion occurred.
+- Each Key Win states the action, observable result, and why that result matters. When impact is unverified, say so explicitly.
+- Business Impact separates confirmed value from possible impact paths, then names the evidence required to validate each path.
+- Every Risk includes its consequence and, when unknown, the missing severity, timing, or escalation trigger.
+- Every Next Step names a concrete output or decision, not another meeting. Preserve `[To confirm]` for missing owner and timeline.
+- Ask includes an escalation condition when no immediate action is needed, so the manager knows when intervention may become necessary.
+- Each Manager Question includes both the best answer supported by current evidence and the specific missing detail needed to complete it.
+- Copy-ready Version contains enough context, current status, next action, and escalation logic to stand alone when pasted into Slack, email, Notion, or a 1:1 document.
 
 ## Repeated component shapes
 

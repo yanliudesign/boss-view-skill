@@ -79,6 +79,16 @@ Boss View 内置 9 种决策视角。选择角色会改变信息优先级、可�
 
 同一份内容还会使用 Offer Toolkit 的视觉系统组装成正式 HTML 报告：cream paper、强层级、决策前置摘要、打印友好的卡片、双语内容和固定导出工具栏。八个章节都会出现；信息不足的章节会明确显示 `待补充` 或 `Impact to quantify`，不会省略，也不会为了填满版面而虚构内容。如果没有明确 Ask，会写 **No immediate action needed.**
 
+## 报告示例
+
+<p align="center">
+	<img src="./examples/cn/Screenshot%202026-08-20%20at%2012.14.20%E2%80%AFAM.png" alt="中文版 Executive Report 封面与执行摘要" width="100%">
+	<img src="./examples/cn/Screenshot%202026-08-20%20at%2012.14.28%E2%80%AFAM.png" alt="中文版 Executive Report 关键成果与业务影响" width="100%">
+	<img src="./examples/cn/Screenshot%202026-08-20%20at%2012.14.35%E2%80%AFAM.png" alt="中文版 Executive Report 挑战与风险" width="100%">
+	<img src="./examples/cn/Screenshot%202026-08-20%20at%2012.14.41%E2%80%AFAM.png" alt="中文版 Executive Report 下一步、所需支持与经理追问" width="100%">
+	<img src="./examples/cn/Screenshot%202026-08-20%20at%2012.14.47%E2%80%AFAM.png" alt="中文版 Executive Report 可直接使用版本与导出控件" width="100%">
+</p>
+
 ## 四步工作法
 
 ```text
