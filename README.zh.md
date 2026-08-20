@@ -1,15 +1,20 @@
-[English](./README.md) · 中文
+<div align="center">
+
+[English](./README.md) · **中文**
 
 # 👔 老板视角汇报 · Boss View
 
-把零散的工作记录，变成老板能快速看懂进展、影响、风险与所需支持的 Executive Update。
+**把零散的工作记录，变成老板能快速看懂进展、影响、风险与所需支持的 Executive Update。**
 
-[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)](./SKILL.md)
+[![Skills](https://img.shields.io/badge/SKILLS-1-2ea44f?style=flat-square&labelColor=333)](./SKILL.md)
 [![Stars](https://img.shields.io/github/stars/yanliudesign/boss-view?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/boss-view/stargazers)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
 [![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-Skill-8957e5?style=flat-square&labelColor=1a1a1a&logo=githubcopilot&logoColor=white)](https://github.com/features/copilot)
 [![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)]()
+
+</div>
 
 这是一个用于周报、工作汇报、Manager Sync、1:1 和项目进展同步的 Agent Skill。你只需要丢进一段顺序混乱、甚至不完整的工作记录，它会从老板 / Manager / Executive 的视角重新组织信息，并自动生成一份可导出 PDF / Markdown 的单文件 HTML 报告。
 

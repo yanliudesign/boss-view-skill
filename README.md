@@ -1,15 +1,20 @@
-[中文](./README.zh.md) · English
+<div align="center">
+
+[中文](./README.zh.md) · **English**
 
 # 👔 Boss View
 
-Turn messy work notes into an executive-ready update that makes progress, impact, risk, and asks clear.
+**Turn messy work notes into executive-ready updates that make progress, impact, risk, and asks clear.**
 
-[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)]()
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)](./SKILL.md)
+[![Skills](https://img.shields.io/badge/SKILLS-1-2ea44f?style=flat-square&labelColor=333)](./SKILL.md)
 [![Stars](https://img.shields.io/github/stars/yanliudesign/boss-view?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/boss-view/stargazers)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
 [![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-Skill-8957e5?style=flat-square&labelColor=1a1a1a&logo=githubcopilot&logoColor=white)](https://github.com/features/copilot)
 [![Codex](https://img.shields.io/badge/Codex-Skill-2ea44f?style=flat-square&labelColor=1a1a1a)]()
+
+</div>
 
 An agent skill for weekly updates, manager syncs, 1:1s, and project reporting. Drop in rough notes in any order. Boss View reorganizes them around what leaders actually need to know, then generates a polished, single-file HTML report with built-in PDF and Markdown export.
 
