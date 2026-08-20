@@ -1,6 +1,6 @@
 ---
-name: "老板视角汇报-1f5a4daa"
-description: 站在老板/Manager/Executive 视角，将用户零散的工作记录重构成突出业务价值的 Executive Update，并默认生成可分享、可导出 PDF/Markdown 的单文件 HTML 报告。适用于周报、工作汇报、Manager Sync、1:1。支持 CEO/CPO/CTO/VP Design/VP Product/Direct Manager 六种受众视角。硬约束：绝不编造数据与结果，从"活动"转向"结果"，输入过短时先出初版再追问。
+name: boss-view
+description: 站在 CEO、CFO、CMO、COO、CPO、CTO、VP Design、VP Product 或直系老板视角，将零散工作记录生成结构化、突出业务价值、可导出 PDF/Markdown 的 Executive Update HTML 报告。适用于周报、工作汇报、Manager Sync、1:1。固定流程：接收输入→选择汇报对象→调用角色知识库→生成完整 8 章 HTML→补充证据。硬约束：绝不编造数据与结果，从"活动"转向"结果"。
 ---
 
 # 老板视角汇报（Executive Update Generator）
@@ -17,11 +17,13 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 
 **即使输入非常混乱，也不要要求用户重新整理**——直接基于现有信息开始工作。
 
-## 工作流程（五步）
+## 固定工作流程（四步）
 
-### Step 1：提取工作信息
+必须按以下顺序执行。不要降级成 Quick Update，也不要只在聊天中输出文本。
 
-从用户输入中自动识别以下要素：
+### Step 1：接收并提取用户输入
+
+接收用户原始记录，不要求用户预先整理。从中自动识别：
 
 - 做了什么（What）
 - 为什么做（Why）
@@ -32,24 +34,37 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 - 下一步是什么（Next Step）
 - 是否需要老板做决策 / 提供资源（Ask）
 
-**如果某些信息没有提供，不要编造数据或事实**，在对应位置标注缺失即可。
+如果某些信息没有提供，不要编造数据或事实。先记录为 evidence gap，Step 3 仍然生成完整 HTML。
 
-### Step 1.5：选择汇报对象
+### Step 2：选择汇报对象
 
-在重构内容前，读取 [references/executive-lenses.md](references/executive-lenses.md)，选择一个主要 Audience Lens：
+在重构内容前，先读取 [references/executive-lenses.md](references/executive-lenses.md) 做角色路由，再读取 [references/executive-knowledge-base.md](references/executive-knowledge-base.md) 中对应角色的知识，选择一个主要 Audience Lens：
 
 - **CEO**：战略、增长、资源配置
+- **CFO**：投入回报、成本效率、资本配置
+- **CMO**：目标客户、市场信号、定位与增长
+- **COO**：执行健康、时间线、依赖与运营效率
 - **CPO**：用户价值、产品判断、学习速度
 - **CTO**：技术风险、依赖、可扩展性
 - **VP Design**：用户洞察、质量、跨团队推进
 - **VP Product**：产品方向、优先级、路线图影响
 - **Direct Manager**：执行进度、风险、个人 ownership
 
-用户明确指定对象时必须使用对应 Lens。未指定且无法可靠推断时，默认使用 **Direct Manager**，并在 Copy-ready Version 之外标注：`Audience lens: Direct Manager (default)`。
+用户明确指定对象时必须使用对应 Lens。用户未指定时，必须先用单选项让用户从 9 个角色中选择；用户跳过或拒绝选择时才默认使用 **Direct Manager**，并在报告中标注：`Audience lens: Direct Manager (default)`。
 
 不要混合全部角色。一个汇报只能有一个主要受众；角色 Lens 只改变信息优先级、风险、追问和 Ask，不得改变或补造事实。
 
-### Step 2：站在老板视角重新思考
+使用角色知识库时必须遵守：
+
+1. 只应用所选角色的 **Core judgment、Evidence hierarchy、Diagnostic、Questions and asks、Red flags**。
+2. 知识库中的指标是检查清单，不是事实；用户未提供的数据必须标为 evidence gap。
+3. CFO 的 ROI 公式仅在 Return 和 Cost 都有用户证据时计算，否则写明 `ROI: Unquantified` 及所需数据。
+4. 角色诊断必须有证据支撑；不能为了给出明确结论而虚构评级。
+5. 知识库不能改变下方固定 8 章结构，只决定每章优先呈现什么。
+
+### Step 3：生成完整的 Executive Update HTML
+
+先站在所选汇报对象的视角重构信息：
 
 **不要按照用户原本的叙述顺序输出。** 优先回答老板最关心的几个问题：
 
@@ -80,9 +95,7 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 
 重点是结果和影响，而不是工作量。
 
-### Step 3：生成 Executive Update
-
-按以下结构输出（某部分无信息时可省略，不要强行填充）：
+然后生成一份单文件 HTML 报告。读取并严格遵守 [references/executive-report-spec.md](references/executive-report-spec.md)，使用 [examples/executive-update-template.html](examples/executive-update-template.html)。报告必须始终包含以下 8 个章节，顺序固定，任何章节都不能省略：
 
 #### Executive Summary
 用 2-3 句话总结最重要的进展，格式：
@@ -129,7 +142,7 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 
 如果没有明确的 Ask，写：**No immediate action needed.** 不要为了完整而虚构 Ask。
 
-### Step 4：预测老板可能会问什么
+#### Manager Questions
 
 根据汇报内容，预测 3-5 个最可能被问到的问题，例如：
 - What is driving the low conversion?
@@ -140,7 +153,7 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 
 **每个问题后面给出一个简洁的回答建议**（基于用户提供的信息作答，没有依据的部分提示用户补充）。
 
-### Step 5：生成可直接复制的最终版本
+#### Copy-ready Version
 
 输出一版可以直接复制到 Slack / Email / Notion / Weekly Update / 1:1 / Manager Sync 的完整汇报文本。要求：
 
@@ -150,17 +163,27 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 - 不要过度包装
 - 不要使用空泛的 corporate jargon
 
-### Step 6：生成 HTML 报告并自动打开
+按报告规格填满模板；所有用户可见的动态文案提供 EN / 中文双语版本。保存到 `~/Desktop/Claude skills/executive-update-<project-or-team>-<YYYYMMDD>.html`，项目未知时使用 `general`。写完后执行规格中的五项自检，修复任何残留的 `{{PLACEHOLDER}}`，再使用操作系统标准命令打开。只有用户明确要求只要 Slack / Email / Notion 文案或 `text only` 时，才跳过 HTML。
 
-默认读取 [references/executive-report-spec.md](references/executive-report-spec.md)，使用 [examples/executive-update-template.html](examples/executive-update-template.html) 生成单文件 HTML 报告。
+### Step 4：信息不足时引导补充并更新报告
 
-1. 按报告规格填满模板；所有用户可见的动态文案提供 EN / 中文双语版本。
-2. 保存到 `~/Desktop/Claude skills/executive-update-<project-or-team>-<YYYYMMDD>.html`；项目未知时使用 `general`。
-3. 写完后执行规格中的五项自检。任何 `{{PLACEHOLDER}}` 残留都必须修复。
-4. 自动打开报告：macOS 使用 `open`，Linux 使用 `xdg-open`，Windows 使用 `start`。
-5. 在对话中同时保留 Copy-ready Version，并告诉用户报告路径及内置的 PDF / Markdown 导出按钮。
+Step 3 完成后检查以下证据是否足以支撑汇报：
 
-只有用户明确要求“只给我一段 Slack / Email / Notion 文案”或 `text only` 时，才跳过 HTML。输入过短也要先生成带缺失标记的初版报告，不要因为信息不完整而拒绝。
+- Outcome：最终推动了什么结果或决策
+- Impact：为什么重要，有什么定性或定量影响
+- Risk：真正的 Blocker、Risk、Dependency 或 Open Question
+- Next：下一步动作
+- Ask：是否需要管理者支持
+
+缺少关键证据时，HTML 中对应章节保留明确的 `待补充` 或 `Impact to quantify`，不能删掉章节，也不能用推断填满。
+
+随后最多追问 3 个高信息量问题，并遵守：
+
+1. 一次只问一个问题。
+2. 每题提供 4-6 个可选答案，同时允许自由输入和跳过。
+3. 优先顺序为 Outcome → Impact → Risk → Next → Ask；只问当前报告最缺的内容。
+4. 用户每回答一题，立即更新同一份 HTML 文件，不另建 Quick Update。
+5. 用户跳过或不再回答时，保留 evidence gap，当前 HTML 仍是可交付结果。
 
 ## 特别规则
 
@@ -172,7 +195,7 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 优先强调：推进了什么、解决了什么、产生了什么影响。
 
 ### 3. 用户输入过于简短时
-**不要直接拒绝。** 先根据已有信息生成一个初版，并在最后提出最多 3 个关键补充问题，帮助用户进一步提升汇报质量。例如：
+不要直接拒绝，也不要降级成精简模板。先完成 Step 2 和 Step 3，生成包含全部 8 个章节的 HTML；缺失处明确标注，再按 Step 4 一次一个问题补充。例如：
 
 > To make this more executive-ready, I'd recommend adding:
 > 1. What was the measurable outcome?
@@ -188,9 +211,9 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 - 汇报正文（Executive Update 各部分及 Copy-ready Version）默认使用英文，因为 Executive Update 场景通常为英文职场环境；若用户输入明显为纯中文语境、或明确要求中文汇报，则整体改为中文输出。
 - 与用户的沟通说明（如补充问题、解释）跟随用户使用的语言。
 
-## 最终输出格式
+## HTML 章节顺序
 
-始终按照以下顺序输出（某部分无信息时可省略，不要强行填充）：
+HTML 必须始终按照以下顺序包含全部章节：
 
 1. **Executive Summary**
 2. **Key Wins**
@@ -199,11 +222,9 @@ description: 站在老板/Manager/Executive 视角，将用户零散的工作记
 5. **Next Steps**
 6. **Ask**
 7. **Manager Questions**（预测问题 + 回答建议）
-8. **Copy-ready Version**（可直接复制的最终版本，用代码块包裹方便复制）
+8. **Copy-ready Version**（可直接复制的最终版本）
 
-完成以上文本后，默认再生成并打开 **Executive Update HTML Report**。报告不是第 9 个文本章节，而是承载以上内容的正式交付物。
-
-若用户输入过短，在第 8 部分之后追加最多 3 个补充问题。
+Executive Update HTML Report 是承载以上内容的正式交付物，不是第 9 个章节。聊天回复只需要告知报告路径、已打开，以及当前是否还有 evidence gap；不要重复整份报告。
 
 ## 示例
 

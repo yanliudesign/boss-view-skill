@@ -43,18 +43,21 @@
 
 ## 选择汇报对象
 
-Boss View 内置 6 种决策视角。选择角色会改变信息优先级、可能的追问、风险表达和 Ask，但绝不会改变底层事实。
+Boss View 内置 9 种决策视角。选择角色会改变信息优先级、可能的追问、风险表达和 Ask，但绝不会改变底层事实。
 
 | 汇报对象 | 优先关注 |
 | --- | --- |
 | **CEO** | 战略、增长、资源配置、机会成本 |
+| **CFO** | 投入回报、成本效率、回收周期、资本配置 |
+| **CMO** | 目标客户、市场信号、定位、GTM 与增长 |
+| **COO** | 执行健康、时间线、依赖、运营效率 |
 | **CPO** | 用户价值、产品判断、学习速度、采用率 |
 | **CTO** | 技术风险、依赖、可靠性、可扩展性 |
 | **VP Design** | 用户洞察、体验质量、设计判断、跨团队推进 |
 | **VP Product** | 产品方向、优先级、路线图影响、市场信号 |
 | **Direct Manager** | 执行进度、交付风险、个人 ownership、所需支持 |
 
-如果用户未指定对象，也无法从上下文可靠判断，则默认使用 **Direct Manager**，并在可复制正文之外说明这一假设。不会把 6 个角色混成一份面面俱到、没有重点的通用汇报。
+如果用户未指定对象，Boss View 会先让用户从 9 个角色中单选；只有用户跳过时才默认使用 **Direct Manager**。不会把 9 个角色混成一份面面俱到、没有重点的通用汇报。
 
 ## 你会得到什么
 
@@ -69,18 +72,15 @@ Boss View 内置 6 种决策视角。选择角色会改变信息优先级、可�
 7. **Manager Questions** — 预测 3–5 个老板最可能追问的问题，并提供回答建议
 8. **Copy-ready Version** — 可直接贴进 Slack、Email、Notion、周会或 1:1 的最终版本
 
-同一份内容还会使用 Offer Toolkit 的视觉系统组装成正式 HTML 报告：cream paper、强层级、决策前置摘要、打印友好的卡片、双语内容和固定导出工具栏。
+同一份内容还会使用 Offer Toolkit 的视觉系统组装成正式 HTML 报告：cream paper、强层级、决策前置摘要、打印友好的卡片、双语内容和固定导出工具栏。八个章节都会出现；信息不足的章节会明确显示 `待补充` 或 `Impact to quantify`，不会省略，也不会为了填满版面而虚构内容。如果没有明确 Ask，会写 **No immediate action needed.**
 
-没有有效信息的部分可以省略。如果没有明确 Ask，会写 **No immediate action needed.**，不会为了格式完整而虚构需求。
-
-## 五步工作法
+## 四步工作法
 
 ```text
-1  提取信息    What · Why · Result · Metrics · Challenge · Impact · Next · Ask
-2  老板重构    不照搬原始顺序，按管理者关心的问题重新排序
-3  结构化      生成 Executive Update，把结果与活动量分开
-4  预测追问    预判 3–5 个最可能出现的 Manager Questions
-5  最终交付    输出简洁、专业、可直接复制的完整版本
+1  用户输入    接收原始记录并提取 What · Result · Impact · Risk · Next · Ask
+2  选择对象    从 9 种 Executive / Manager 视角中选择一个
+3  生成报告    输出包含完整 8 个章节的单文件 HTML，并在 Chrome 打开
+4  补充证据    信息少时一次只问一个问题，最多 3 个；回答后更新同一份 HTML
 ```
 
 核心转换只有一句话：
@@ -107,7 +107,7 @@ Boss View 内置 6 种决策视角。选择角色会改变信息优先级、可�
 
 1. **绝不编造** — 数字、结果、客户反馈和商业影响必须来自用户输入。
 2. **结果优先于活动量** — 会议、文档和迭代只有在解释“推进了什么”时才值得出现。
-3. **先基于现有信息出初版** — 即使输入很短、很乱，也先给出可用结果；之后最多追问 3 个关键问题。
+3. **先生成完整 HTML** — 即使输入很短、很乱，也先生成包含全部 8 个章节的报告；之后最多追问 3 个关键问题并更新同一文件。
 4. **保留用户真实语气** — 普通团队 update 不应被写成 CEO 演讲。Clear > Concise > Impactful > Authentic。
 
 ## 语言规则
@@ -139,7 +139,8 @@ boss-view/
 ├── examples/
 │   └── executive-update-template.html # 单文件 HTML 报告模板
 ├── references/
-│   ├── executive-lenses.md          # 6 种汇报对象决策视角
+│   ├── executive-lenses.md          # 9 种角色的路由与信息优先级
+│   ├── executive-knowledge-base.md  # 从原始材料提炼的角色决策知识库
 │   └── executive-report-spec.md     # HTML 生成与校验规则
 ├── README.md                        # English documentation
 └── README.zh.md                     # 中文文档
@@ -162,6 +163,8 @@ boss-view/
 - [SKILL.md](./SKILL.md) — 完整工作流与输出规则
 - [Executive audience lenses](./references/executive-lenses.md) — 各角色的信息优先级、追问与 Ask
 - [Executive report template](./examples/executive-update-template.html) — 单文件 HTML 报告骨架
+- [Executive knowledge base](./references/executive-knowledge-base.md) — 各角色的证据、诊断逻辑与风险信号
+- [Executive report specification](./references/executive-report-spec.md) — HTML 生成与校验规则
 - [yanliudesign on GitHub](https://github.com/yanliudesign) — 更多 Agent Skills 与设计工具
 
 Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) · [LinkedIn](https://www.linkedin.com/in/yanliudesign/) · [X](https://x.com/yanliudreamer) · [Xiaohongshu](https://www.xiaohongshu.com/notification)

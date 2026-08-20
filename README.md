@@ -43,18 +43,21 @@ Name the audience to change what gets emphasized:
 
 ## Choose the audience
 
-Boss View supports six decision lenses. The selected lens changes priority, likely follow-up questions, risk framing, and the ask — never the underlying facts.
+Boss View supports nine decision lenses. The selected lens changes priority, likely follow-up questions, risk framing, and the ask — never the underlying facts.
 
 | Audience | What the update prioritizes |
 | --- | --- |
 | **CEO** | Strategy, growth, resource allocation, opportunity cost |
+| **CFO** | Investment return, cost efficiency, payback, capital allocation |
+| **CMO** | Target customer, market signal, positioning, go-to-market, growth |
+| **COO** | Execution health, timeline, dependencies, operating efficiency |
 | **CPO** | User value, product judgment, learning velocity, adoption |
 | **CTO** | Technical risk, dependencies, reliability, scalability |
 | **VP Design** | User insight, experience quality, design rationale, cross-functional progress |
 | **VP Product** | Product direction, prioritization, roadmap impact, market signal |
 | **Direct Manager** | Execution progress, delivery risk, ownership, support needed |
 
-If the audience is not specified and cannot be inferred reliably, Boss View defaults to **Direct Manager** and states the assumption outside the copy-ready update. It never blends all six lenses into one generic report.
+If the audience is not specified, Boss View first asks the user to select one of the nine roles. It defaults to **Direct Manager** only when the user skips the choice. It never blends all nine lenses into one generic report.
 
 ## What you get
 
@@ -69,18 +72,15 @@ Every update is organized around a consistent executive narrative:
 7. **Manager Questions** — likely follow-up questions with answer guidance
 8. **Copy-ready Version** — a concise final update for Slack, email, Notion, a weekly review, or a 1:1
 
-The same content is assembled into an editorial HTML report using the Offer Toolkit visual system: cream paper, strong hierarchy, decision-first summary, print-safe cards, bilingual content, and a fixed export toolbar.
-
-Sections without useful information can be omitted. If there is no ask, the skill says **No immediate action needed.**
+The same content is assembled into an editorial HTML report using the Offer Toolkit visual system: cream paper, strong hierarchy, decision-first summary, print-safe cards, bilingual content, and a fixed export toolbar. All eight sections always appear. Unsupported sections show an explicit `Evidence gap` or `Impact to quantify`; they are never omitted or padded with invented content. If there is no ask, the skill says **No immediate action needed.**
 
 ## How it works
 
 ```text
-1  Extract      What · Why · Result · Metrics · Challenge · Impact · Next · Ask
-2  Reframe      Reorder the story around executive priorities
-3  Structure    Build the Executive Update and separate signal from activity
-4  Anticipate   Predict 3–5 likely manager questions
-5  Deliver      Produce a concise, copy-ready version
+1  Input        Accept raw notes and extract What · Result · Impact · Risk · Next · Ask
+2  Audience     Select one of nine executive and manager lenses
+3  Report       Generate a single-file HTML with all eight sections and open it in Chrome
+4  Complete     Ask one missing-evidence question at a time, up to three, then update the same HTML
 ```
 
 The central transformation is simple:
@@ -107,7 +107,7 @@ The number of meetings is not the story. The decision, movement, or business out
 
 1. **Never fabricate** — numbers, results, customer feedback, and business impact must come from the user's input.
 2. **Outcomes over activity** — meetings, documents, and iterations matter only when they explain what moved.
-3. **Start with what exists** — even sparse or disorganized notes get a useful first draft; the skill asks at most three follow-up questions afterward.
+3. **Generate the full HTML first** — even sparse or disorganized notes produce all eight sections; the skill then asks at most three follow-up questions and updates the same file.
 4. **Keep the user's voice** — an ordinary team update should not sound like a CEO keynote. Clear > Concise > Impactful > Authentic.
 
 ## Language behavior
@@ -139,7 +139,8 @@ boss-view/
 ├── examples/
 │   └── executive-update-template.html # Single-file report template
 ├── references/
-│   ├── executive-lenses.md          # Six audience decision lenses
+│   ├── executive-lenses.md          # Nine-role routing and emphasis rules
+│   ├── executive-knowledge-base.md  # Deep decision models distilled from source documents
 │   └── executive-report-spec.md     # HTML generation and validation rules
 ├── README.md                        # English documentation
 └── README.zh.md                     # 中文文档
@@ -162,6 +163,8 @@ Missing information is marked for follow-up, never filled with invented facts.
 - [SKILL.md](./SKILL.md) — the complete workflow and output rules
 - [Executive audience lenses](./references/executive-lenses.md) — priorities, questions, and asks by role
 - [Executive report template](./examples/executive-update-template.html) — the self-contained HTML shell
+- [Executive knowledge base](./references/executive-knowledge-base.md) — evidence, diagnostics, and red flags by role
+- [Executive report specification](./references/executive-report-spec.md) — HTML generation and validation rules
 - [yanliudesign on GitHub](https://github.com/yanliudesign) — more agent skills and design tools
 
 Created by [Dreameryanyan](https://www.linkedin.com/in/yanliudesign/) · [LinkedIn](https://www.linkedin.com/in/yanliudesign/) · [X](https://x.com/yanliudreamer) · [Xiaohongshu](https://www.xiaohongshu.com/notification)

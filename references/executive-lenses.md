@@ -1,14 +1,25 @@
 # Executive Audience Lenses
 
-Use this reference after extracting the facts and before reframing the update. A lens changes information priority, follow-up questions, risks, and asks. It never changes the underlying facts.
+Use this reference after extracting the facts and before reframing the update. A lens changes information priority, follow-up questions, risks, and asks. It never changes the underlying facts. For the deeper decision model behind CEO, CFO, CMO, COO, CPO, CTO, and Direct Manager, also read [executive-knowledge-base.md](executive-knowledge-base.md).
 
 ## Lens selection
 
 1. If the user names the audience, use that lens.
-2. If the audience is not named, infer only when the context makes one role unambiguous.
+2. If the audience is not named, do not infer a role before offering the audience selector.
 3. Otherwise default to **Direct Manager** and state `Audience lens: Direct Manager (default)` outside the copy-ready version.
 4. If the update serves multiple leaders, ask for one primary audience only when choosing the wrong lens would materially change the update. Otherwise use the closest lens and note the assumption.
 5. Never blend all lenses. A report optimized for everyone is prioritized for no one.
+
+## Neighboring-lens routing
+
+When the user asks which lens fits, use the question that is driving the update:
+
+- **CEO vs. CFO:** choose CEO for strategic priority and whether to invest; choose CFO for cost, return, payback, and capital efficiency.
+- **CEO vs. COO:** choose CEO for whether the work should continue; choose COO for whether execution will land on time and at acceptable operational cost.
+- **CPO vs. CMO:** choose CPO for whether users receive real product value; choose CMO for whether the target market understands, wants, and adopts that value.
+- **CPO vs. VP Product:** choose CPO for product principles, user value, and portfolio-level judgment; choose VP Product for roadmap sequencing and product-line priorities.
+- **COO vs. Direct Manager:** choose COO for cross-functional operating health; choose Direct Manager for an individual's commitments, ownership, and support needs.
+- **CTO vs. COO:** choose CTO when architecture, reliability, security, or technical scale drives the risk; choose COO when timeline, dependency, or decision velocity drives it.
 
 ## CEO
 
@@ -23,6 +34,48 @@ Use this reference after extracting the facts and before reframing the update. A
 - What decision or resource shift is needed now?
 
 **Shape the ask around:** strategic choice, investment level, priority, or cross-company alignment.
+
+## CFO
+
+**Prioritize:** investment components, measurable return, cost efficiency, payback, opportunity cost, financial risk, and whether resources are allocated to their highest-value use.
+
+**Deprioritize:** activity and strategic narrative without a cost-and-return path.
+
+**Likely questions:**
+- What did this cost, and what value did it return?
+- Is the ROI measurable, and when does it pay back?
+- Is there a cheaper or higher-leverage alternative?
+- What financial assumption must be validated before scaling?
+
+**Shape the ask around:** budget approval, spend reduction, investment validation, or resource reallocation.
+
+## CMO
+
+**Prioritize:** target customer, perceived customer value, market signal, positioning, differentiation, go-to-market clarity, and the affected funnel stage.
+
+**Deprioritize:** product readiness without external awareness, intent, adoption, or feedback.
+
+**Likely questions:**
+- Who is the target customer, and why will they care?
+- Why would they choose us over alternatives?
+- Which funnel stage should move, and what evidence will show it?
+- Are audience, message, channel, and launch timing aligned?
+
+**Shape the ask around:** audience research, messaging alignment, launch timing, distribution, or marketing resources.
+
+## COO
+
+**Prioritize:** progress against plan, timeline confidence, execution efficiency, decision velocity, cross-functional dependencies, DRI clarity, and active blockers.
+
+**Deprioritize:** broad strategic framing that does not change delivery, ownership, or operating risk.
+
+**Likely questions:**
+- Will this hit the commitment, and how much buffer remains?
+- Who is waiting for whom?
+- Who owns the next decision and action?
+- Which blocker needs escalation now?
+
+**Shape the ask around:** cross-team coordination, scope reduction, decision escalation, ownership, or resource deployment.
 
 ## CPO
 
