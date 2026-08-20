@@ -8,7 +8,7 @@
 
 [![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)](./SKILL.md)
 [![Skills](https://img.shields.io/badge/SKILLS-1-2ea44f?style=flat-square&labelColor=333)](./SKILL.md)
-[![Stars](https://img.shields.io/github/stars/yanliudesign/boss-view?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/boss-view/stargazers)
+[![Stars](https://img.shields.io/github/stars/yanliudesign/boss-view-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/boss-view-skill/stargazers)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
 [![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-Skill-8957e5?style=flat-square&labelColor=1a1a1a&logo=githubcopilot&logoColor=white)](https://github.com/features/copilot)
@@ -124,14 +124,14 @@ The copy-ready update defaults to English for international workplace contexts. 
 Copy this repository into your agent's skills directory:
 
 ```bash
-git clone https://github.com/yanliudesign/boss-view.git
+git clone https://github.com/yanliudesign/boss-view-skill.git
 ```
 
 For Claude Code:
 
 ```bash
 mkdir -p ~/.claude/skills
-cp -R boss-view ~/.claude/skills/boss-view
+cp -R boss-view-skill ~/.claude/skills/boss-view
 ```
 
 For VS Code, place the folder in your prompts/skills location and invoke it from Copilot Chat. The exact skills directory can vary by setup.
@@ -139,7 +139,7 @@ For VS Code, place the folder in your prompts/skills location and invoke it from
 ## File structure
 
 ```text
-boss-view/
+boss-view-skill/
 ├── SKILL.md                         # Workflow and output contract
 ├── examples/
 │   └── executive-update-template.html # Single-file report template

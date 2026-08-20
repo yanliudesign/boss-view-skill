@@ -8,7 +8,7 @@
 
 [![Version](https://img.shields.io/badge/VERSION-1.0.0-2ea44f?style=flat-square&labelColor=333)](./SKILL.md)
 [![Skills](https://img.shields.io/badge/SKILLS-1-2ea44f?style=flat-square&labelColor=333)](./SKILL.md)
-[![Stars](https://img.shields.io/github/stars/yanliudesign/boss-view?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/boss-view/stargazers)
+[![Stars](https://img.shields.io/github/stars/yanliudesign/boss-view-skill?style=flat-square&label=STARS&color=e37f2c&labelColor=333)](https://github.com/yanliudesign/boss-view-skill/stargazers)
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-d97757?style=flat-square&labelColor=1a1a1a&logo=anthropic&logoColor=white)](https://claude.ai/code)
 [![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-Skill-8957e5?style=flat-square&labelColor=1a1a1a&logo=githubcopilot&logoColor=white)](https://github.com/features/copilot)
@@ -124,14 +124,14 @@ Boss View 内置 9 种决策视角。选择角色会改变信息优先级、可�
 把仓库克隆到本地：
 
 ```bash
-git clone https://github.com/yanliudesign/boss-view.git
+git clone https://github.com/yanliudesign/boss-view-skill.git
 ```
 
 Claude Code：
 
 ```bash
 mkdir -p ~/.claude/skills
-cp -R boss-view ~/.claude/skills/boss-view
+cp -R boss-view-skill ~/.claude/skills/boss-view
 ```
 
 VS Code 用户可以把整个文件夹放入自己的 prompts / skills 目录，再从 Copilot Chat 触发。具体目录可能因本地配置而异。
@@ -139,7 +139,7 @@ VS Code 用户可以把整个文件夹放入自己的 prompts / skills 目录，
 ## 文件结构
 
 ```text
-boss-view/
+boss-view-skill/
 ├── SKILL.md                         # 工作流与输出规则
 ├── examples/
 │   └── executive-update-template.html # 单文件 HTML 报告模板
